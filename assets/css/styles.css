@@ -41,6 +41,14 @@ h1 {
   text-transform: uppercase;
 }
 
+.grayscale-image {
+  filter: grayscale(100%);
+}
+
+.grayscale-image:hover {
+  filter: grayscale(0);
+}
+
 .site-button {
   padding: 10px 20px;
   background-color: var(--button-background-color);
