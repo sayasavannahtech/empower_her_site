@@ -1,0 +1,48 @@
+:root {
+     --dark-brown: #20150f;
+     --ndithi: #e8d3ca;
+     --redish: #ad2330;
+}
+
+
+nav {
+     background-color: var(--dark-brown);
+     color: var(--ndithi);
+}
+
+.navbar-nav a {
+     color: var(--ndithi);
+}
+
+.navbar-nav a:hover {
+     color: var(--redish);
+     text-decoration: underline;
+     font-weight: bold;
+}
+
+.navbar-nav a:active {
+     color: var(--redish);
+     text-decoration: underline;
+     font-weight: bold;
+}
+
+.nav-item {
+     padding: 5px 10px;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+     /* transform: rotate(90deg); */
+}
+
+.navbar-toggler-icon {
+     color: var(--dark-brown);
+     margin-right: 10px;
+     height: 50px;
+     transition: transform 0.3s ease-in-out;
+}
+
+.logoo {
+     height: 50px;
+     width: 50px;
+     margin-left: 10px;
+}
