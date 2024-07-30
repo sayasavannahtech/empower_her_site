@@ -105,10 +105,49 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSpeaker();
 
   //   Start of the partners logo section
-  const carousel = document.querySelector('.partners-carousel');
-    const images = carousel.querySelectorAll('img');
-    images.forEach(img => {
-      const clone = img.cloneNode(true);
-      carousel.appendChild(clone);
+  const carousel = document.querySelector(".partners-carousel");
+  const images = carousel.querySelectorAll("img");
+  images.forEach((img) => {
+    const clone = img.cloneNode(true);
+    carousel.appendChild(clone);
+  });
+
+  // script to activate the modal section for the navbar
+  $(document).ready(function () {
+    $(".nav-toggle").click(function () {
+      $(".modal-nav").addClass("show");
+      $('body').addClass('no-scroll');
     });
+
+    $(".close-btn").click(function () {
+      $(".modal-nav").removeClass("show");
+      $('body').removeClass('no-scroll')
+    });
+  });
+
+  const navbar = document.querySelector('.navbar');
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      navbar.classList.add('hidden');
+    } else {
+      // Scrolling up
+      navbar.classList.remove('hidden');
+    }
+    lastScrollY = window.scrollY;
+  });
+});
+
+// Navbar scrolling effect
+window.addEventListener("scroll", function () {
+  var navbar = document.querySelector(".navbar");
+  if (navbar) {
+    if (window.scrollY > 0) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
 });
