@@ -116,27 +116,62 @@ document.addEventListener("DOMContentLoaded", () => {
   $(document).ready(function () {
     $(".nav-toggle").click(function () {
       $(".modal-nav").addClass("show");
-      $('body').addClass('no-scroll');
+      $("body").addClass("no-scroll");
     });
 
     $(".close-btn").click(function () {
       $(".modal-nav").removeClass("show");
-      $('body').removeClass('no-scroll')
+      $("body").removeClass("no-scroll");
     });
   });
 
-  const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector(".navbar");
   let lastScrollY = window.scrollY;
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener("scroll", function () {
     if (window.scrollY > lastScrollY) {
       // Scrolling down
-      navbar.classList.add('hidden');
+      navbar.classList.add("hidden");
     } else {
       // Scrolling up
-      navbar.classList.remove('hidden');
+      navbar.classList.remove("hidden");
     }
     lastScrollY = window.scrollY;
+  });
+
+  // Registration forms transition and content script
+  const toggleButton = document.getElementById("toggle-button");
+  const titleText = document.getElementById("title-text");
+  const locationDescription = document.getElementById("locationDescription");
+  const localForm = document.getElementById("local-form");
+  const internationalForm = document.getElementById("international-form");
+  const titleColumn = document.getElementById("title-column");
+  const innerContainer = document.querySelector(".inner-container");
+
+  toggleButton.addEventListener("click", function () {
+    if (localForm.classList.contains("active")) {
+      // Switch to international form
+      titleText.textContent = "Hello";
+      locationDescription.textContent =
+        "This is the international registration form you dumb fuck!";
+      localForm.classList.remove("active");
+      internationalForm.classList.add("active");
+      innerContainer.classList.add("switch");
+      titleColumn.classList.add("international-active");
+      toggleButton.innerHTML =
+        '<i class="fas fa-arrow-left"></i><span>Local</span>';
+    } else {
+      // Switch to local form
+      titleText.textContent = "karibu";
+      locationDescription.textContent =
+        "This is the local registration form you!";
+      internationalForm.classList.remove("active");
+      localForm.classList.add("active");
+      innerContainer.classList.remove("switch");
+      titleColumn.classList.remove("international-active");
+      toggleButton.innerHTML =
+        '<span>International</span><i class="fas fa-arrow-right"></i>';
+    }
   });
 });
 
